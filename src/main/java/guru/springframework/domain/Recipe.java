@@ -28,10 +28,15 @@ public class Recipe {
 
     @Lob
     private Byte[] image;
+    
+    @Enumerated(value=EnumType.STRING)
+    private Difficulty difficulty;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
+    private Set<Catagory> catagories;
+    
     public Long getId() {
         return id;
     }
@@ -119,4 +124,22 @@ public class Recipe {
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
+
+	public Difficulty getDifficulty() {
+		return difficulty;
+	}
+
+	public void setDifficulty(Difficulty difficulty) {
+		this.difficulty = difficulty;
+	}
+
+	public Set<Catagory> getCatagories() {
+		return catagories;
+	}
+
+	public void setCatagories(Set<Catagory> catagories) {
+		this.catagories = catagories;
+	}
+    
+    
 }
